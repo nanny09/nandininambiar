@@ -1,0 +1,1400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nandini Nambiar - Software Engineer Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #6C63FF;
+            --secondary-color: #FF6584;
+            --accent-color: #36D1DC;
+            --dark-color: #2A2D43;
+            --light-color: #F9F9FF;
+            --text-color: #333;
+            --text-light: #666;
+            --white: #FFFFFF;
+            --shadow: 0 10px 30px rgba(108, 99, 255, 0.15);
+            --transition: all 0.3s ease;
+            --border-radius: 12px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-color);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            color: var(--dark-color);
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        h3 {
+            font-size: 1.8rem;
+            color: var(--dark-color);
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            margin-bottom: 4rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            box-shadow: var(--shadow);
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(108, 99, 255, 0.25);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            padding: 15px 0;
+        }
+
+        header.scrolled {
+            padding: 10px 0;
+            background-color: rgba(255, 255, 255, 0.98);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        .logo i {
+            margin-right: 10px;
+            font-size: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            font-size: 1.05rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            left: 0;
+            bottom: -5px;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding-top: 150px;
+            background: linear-gradient(135deg, #f5f7ff 0%, #eef1ff 100%);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(108, 99, 255, 0.1), rgba(255, 101, 132, 0.1));
+            top: -100px;
+            right: -100px;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 300px;
+            padding-right: 40px;
+            z-index: 1;
+        }
+
+        .hero-text h1 {
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-text .subtitle {
+            font-size: 1.8rem;
+            color: var(--dark-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            color: var(--text-light);
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .hero-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-img {
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 12px solid var(--white);
+            box-shadow: var(--shadow);
+            animation: float 6s ease-in-out infinite;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 5rem;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* About Section */
+        .about {
+            background-color: var(--white);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .education-item {
+            background: var(--light-color);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            margin-bottom: 25px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .education-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .education-item h3 {
+            color: var(--primary-color);
+        }
+
+        .education-item .date {
+            color: var(--secondary-color);
+            font-weight: 500;
+            margin-bottom: 10px;
+            display: inline-block;
+            padding: 5px 15px;
+            background: rgba(255, 101, 132, 0.1);
+            border-radius: 20px;
+        }
+
+        .education-item .percentage {
+            color: var(--accent-color);
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        /* Skills Section */
+        .skills {
+            background-color: var(--light-color);
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-category {
+            background: var(--white);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .skill-category:hover {
+            transform: translateY(-10px);
+        }
+
+        .skill-category h3 {
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .skill-name {
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .skill-bar {
+            width: 100%;
+            height: 8px;
+            background-color: #e0e0e0;
+            border-radius: 4px;
+            margin-top: 5px;
+            overflow: hidden;
+        }
+
+        .skill-level {
+            height: 100%;
+            border-radius: 4px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+        }
+
+        /* Technology Section */
+        .technologies {
+            background-color: var(--white);
+        }
+
+        .tech-icons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .tech-icon {
+            text-align: center;
+            transition: var(--transition);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            background: var(--light-color);
+            width: 120px;
+        }
+
+        .tech-icon:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: var(--shadow);
+            background: var(--white);
+        }
+
+        .tech-icon i {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .tech-icon span {
+            font-weight: 500;
+            color: var(--dark-color);
+        }
+
+        /* Experience Section */
+        .experience {
+            background-color: var(--light-color);
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--primary-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-content {
+            padding: 20px;
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .timeline-content h3 {
+            color: var(--primary-color);
+        }
+
+        .timeline-content .date {
+            color: var(--secondary-color);
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: var(--white);
+            border: 4px solid var(--primary-color);
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+
+        .timeline-item:nth-child(odd)::after {
+            right: -12px;
+        }
+
+        .timeline-item:nth-child(even)::after {
+            left: -12px;
+        }
+
+        /* Projects Section */
+        .projects {
+            background-color: var(--white);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: var(--light-color);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .project-img {
+            height: 200px;
+            width: 100%;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 3rem;
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-content h3 {
+            color: var(--secondary-color);
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .project-tag {
+            background-color: rgba(108, 99, 255, 0.1);
+            color: var(--primary-color);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* Blog Section */
+        .blog {
+            background-color: var(--light-color);
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .blog-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .blog-img {
+            height: 200px;
+            width: 100%;
+            background: linear-gradient(45deg, var(--accent-color), var(--primary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 2.5rem;
+        }
+
+        .blog-content {
+            padding: 25px;
+        }
+
+        .blog-content h3 {
+            color: var(--dark-color);
+        }
+
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        /* Activities Section */
+        .activities {
+            background-color: var(--white);
+        }
+
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .activity-card {
+            background: var(--light-color);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .activity-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .activity-card i {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--dark-color), #1a1c2f);
+            color: var(--white);
+            padding: 80px 0 40px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            color: var(--white);
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background: var(--accent-color);
+            left: 0;
+            bottom: -8px;
+        }
+
+        .footer-col p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 1.2rem;
+        }
+
+        .social-icons a:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-color);
+            padding-left: 5px;
+        }
+
+        .contact-info {
+            list-style: none;
+        }
+
+        .contact-info li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .contact-info i {
+            margin-right: 10px;
+            color: var(--accent-color);
+            margin-top: 5px;
+            font-size: 1.2rem;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2.8rem;
+            }
+
+            h2 {
+                font-size: 2.2rem;
+            }
+
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-text {
+                padding-right: 0;
+                margin-bottom: 50px;
+            }
+
+            .profile-img {
+                width: 300px;
+                height: 300px;
+            }
+
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+
+            .timeline-item::after {
+                left: 20px;
+            }
+
+            .timeline-item:nth-child(odd)::after,
+            .timeline-item:nth-child(even)::after {
+                left: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 10px 0;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: var(--transition);
+                z-index: 999;
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            .nav-links li {
+                margin: 15px 0;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .hero {
+                padding-top: 120px;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            section {
+                padding: 80px 0;
+            }
+
+            .profile-img {
+                width: 250px;
+                height: 250px;
+                font-size: 4rem;
+            }
+
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 250px;
+                text-align: center;
+                margin-bottom: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                width: 95%;
+                padding: 0 10px;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            .profile-img {
+                width: 220px;
+                height: 220px;
+                font-size: 3rem;
+            }
+
+            .tech-icons {
+                gap: 25px;
+            }
+
+            .tech-icon {
+                width: 100px;
+                padding: 15px;
+            }
+
+            .tech-icon i {
+                font-size: 2.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo"><i class="fas fa-laptop-code"></i>Nandini<span>Nambiar</span></a>
+                <div class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#technologies">Technologies</a></li>
+                    <li><a href="#experience">Learning</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#activities">Activities</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Nandini Nambiar</h1>
+                    <div class="subtitle">Psychology Student & Aspiring Software Engineer</div>
+                    <p>I'm a passionate learner currently studying Psychology while developing my software engineering skills. I love combining human behavior understanding with technology to create meaningful solutions.</p>
+                    <div class="hero-btns">
+                        <a href="#projects" class="btn">View My Work</a>
+                        <a href="#contact" class="btn btn-outline">Contact Me</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="profile-img">NN</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div>
+                    <h3>Education</h3>
+                    <div class="education-item">
+                        <h3>Bachelor of Science in Psychology</h3>
+                        <p class="date">2025 - Present</p>
+                        <p>Shri Vaishnav Vidyapeeth Vishwavidyalaya, Indore</p>
+                        <p>Currently pursuing my undergraduate degree with a focus on cognitive psychology and human-computer interaction.</p>
+                    </div>
+                    <div class="education-item">
+                        <h3>Class 12th - Humanities</h3>
+                        <p class="date">2023 - 2025</p>
+                        <p>SICA School 54, Vijay Nagar</p>
+                        <p>Completed with <span class="percentage">91%</span> marks</p>
+                        <p>Developed strong analytical and critical thinking skills through humanities subjects.</p>
+                    </div>
+                </div>
+                <div>
+                    <h3>My Journey</h3>
+                    <div class="education-item">
+                        <p>Hello! I'm Nandini Nambiar, a psychology student with a growing passion for technology and software development. My background in humanities gives me a unique perspective on problem-solving and understanding user behavior.</p>
+                        <p>Currently, I'm learning Python programming through Samyak Classes and exploring how technology can be used to enhance mental health and well-being. I believe the intersection of psychology and technology holds immense potential for creating impactful solutions.</p>
+                        <p>My goal is to combine my understanding of human behavior with technical skills to build applications that are not only functional but also psychologically informed and user-centered.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <div class="container">
+            <h2 class="section-title">My Skills</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3><i class="fas fa-brain"></i> Psychology</h3>
+                    <ul class="skill-list">
+                        <li>
+                            <span class="skill-name">Cognitive Psychology</span>
+                            <div class="skill-bar"><div class="skill-level" style="width: 85%"></div></div>
+                        </li>
+                        <li>
+                            <span class="skill-name">Research Methods</span>
+                            <div class="skill-bar"><div class="skill-level" style="width: 80%"></div></div>
+                        </li>
+                        <li>
+                            <span class="skill-name">Human Behavior Analysis</span>
+                            <div class="skill-bar"><div class="skill-level" style="width: 90%"></div></div>
+                        </li>
+                        <li>
+                            <span class="skill-name">Communication Skills</span>
+                            <div class="skill-bar"><div class="skill-level" style="width: 95%"></div></div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Technical</h3>
+                    <ul class="skill-list">
+                        <li>
+                            <span class="skill-name">Python</span>
+                            <div class="skill-bar"><div class="skill-level" style="width: 70%"></div></div>
+                        </li>
+                        <li>
+                            <span class="skill-name">HTML/CSS</span>
+                            <div class="skill-bar"><div class="skill-level" style="width: 75%"></div></div>
+                        </li>
+                        <li>
+                            <span class="skill-name">Problem Solving</span>
+                            <div class="skill-bar"><div class="skill-level" style="width: 85%"></div></div>
+                        </li>
+                        <li>
+                            <span class="skill-name">Logical Thinking</span>
+                            <div class="skill-bar"><div class="skill-level" style="width: 80%"></div></div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-tools"></i> Soft Skills</h3>
+                    <ul class="skill-list">
+                        <li>
+                            <span class="skill-name">Critical Thinking</span>
+                            <div class="skill-bar"><div class="skill-level" style="width: 90%"></div></div>
+                        </li>
+                        <li>
+                            <span class="skill-name">Adaptability</span>
+                            <div class="skill-bar"><div class="skill-level" style="width: 85%"></div></div>
+                        </li>
+                        <li>
+                            <span class="skill-name">Team Collaboration</span>
+                            <div class="skill-bar"><div class="skill-level" style="width: 88%"></div></div>
+                        </li>
+                        <li>
+                            <span class="skill-name">Time Management</span>
+                            <div class="skill-bar"><div class="skill-level" style="width: 82%"></div></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technologies Section -->
+    <section class="technologies" id="technologies">
+        <div class="container">
+            <h2 class="section-title">Technologies I'm Learning</h2>
+            <div class="tech-icons">
+                <div class="tech-icon">
+                    <i class="fab fa-python"></i>
+                    <span>Python</span>
+                </div>
+                <div class="tech-icon">
+                    <i class="fab fa-html5"></i>
+                    <span>HTML5</span>
+                </div>
+                <div class="tech-icon">
+                    <i class="fab fa-css3-alt"></i>
+                    <span>CSS3</span>
+                </div>
+                <div class="tech-icon">
+                    <i class="fab fa-js"></i>
+                    <span>JavaScript</span>
+                </div>
+                <div class="tech-icon">
+                    <i class="fas fa-database"></i>
+                    <span>SQL</span>
+                </div>
+                <div class="tech-icon">
+                    <i class="fab fa-git-alt"></i>
+                    <span>Git</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Learning Journey Section -->
+    <section class="experience" id="experience">
+        <div class="container">
+            <h2 class="section-title">My Learning Journey</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Psychology Studies Begin</h3>
+                        <p class="date">2025 - Present</p>
+                        <p>Started BSc Psychology at Shri Vaishnav Vidyapeeth Vishwavidyalaya, focusing on cognitive processes and human behavior.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Python Programming</h3>
+                        <p class="date">2024 - Present</p>
+                        <p>Enrolled in Samyak Classes to learn Python programming, focusing on fundamentals, data structures, and problem-solving.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Web Development Basics</h3>
+                        <p class="date">2024 - Present</p>
+                        <p>Self-learning HTML, CSS, and JavaScript to understand web technologies and build my own portfolio.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Class 12th Completion</h3>
+                        <p class="date">2025</p>
+                        <p>Successfully completed Class 12th with 91% marks from SICA School, Vijay Nagar, developing strong analytical skills.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <h2 class="section-title">My Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Psychology & Tech Blog</h3>
+                        <p>A blog exploring the intersection of psychology and technology, with articles on user experience, cognitive principles in design, and mental health apps.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Writing</span>
+                            <span class="project-tag">Research</span>
+                            <span class="project-tag">Psychology</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Python Learning Projects</h3>
+                        <p>Various small Python projects including a to-do list app, a simple calculator, and a basic text-based game to practice programming concepts.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">Beginner</span>
+                            <span class="project-tag">Practice</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-laptop-medical"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Mental Health Resource Hub</h3>
+                        <p>Conceptual design for a web platform that connects psychology students with mental health resources, research papers, and community discussions.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Concept</span>
+                            <span class="project-tag">Psychology</span>
+                            <span class="project-tag">Web Design</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="blog" id="blog">
+        <div class="container">
+            <h2 class="section-title">My Blog</h2>
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <div class="blog-img">
+                        <i class="fas fa-user-friends"></i>
+                    </div>
+                    <div class="blog-content">
+                        <h3>Psychology Meets Programming</h3>
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> March 15, 2025</span>
+                            <span><i class="far fa-clock"></i> 5 min read</span>
+                        </div>
+                        <p>Exploring how understanding human cognition can make you a better programmer and create more intuitive software.</p>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-img">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="blog-content">
+                        <h3>Learning Python as a Beginner</h3>
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> February 28, 2025</span>
+                            <span><i class="far fa-clock"></i> 7 min read</span>
+                        </div>
+                        <p>My journey learning Python from scratch - challenges, resources, and tips for other beginners with non-technical backgrounds.</p>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-img">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div class="blog-content">
+                        <h3>Humanities in Tech</h3>
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> January 20, 2025</span>
+                            <span><i class="far fa-clock"></i> 6 min read</span>
+                        </div>
+                        <p>Why a humanities background can be an advantage in the tech industry and how to leverage these skills.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Activities Section -->
+    <section class="activities" id="activities">
+        <div class="container">
+            <h2 class="section-title">Extra Activities</h2>
+            <div class="activities-grid">
+                <div class="activity-card">
+                    <i class="fas fa-book-reader"></i>
+                    <h3>Reading & Research</h3>
+                    <p>Regularly reading psychology journals and tech articles to stay updated with both fields.</p>
+                </div>
+                <div class="activity-card">
+                    <i class="fas fa-pen-fancy"></i>
+                    <h3>Writing</h3>
+                    <p>Writing blog posts and articles about the intersection of psychology and technology.</p>
+                </div>
+                <div class="activity-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Online Communities</h3>
+                    <p>Participating in online forums for both psychology students and programming beginners.</p>
+                </div>
+                <div class="activity-card">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <h3>Mentoring</h3>
+                    <p>Helping fellow students with psychology concepts and sharing programming learning resources.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>Nandini Nambiar</h3>
+                    <p>Psychology student and aspiring software engineer passionate about creating technology that understands human behavior.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Me</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-phone-alt"></i> <span>+91 78980 52232</span></li>
+                        <li><i class="fas fa-envelope"></i> <span>donghuadjuin09@gmail.com</span></li>
+                        <li><i class="fas fa-map-marker-alt"></i> <span>Indore, Madhya Pradesh, India</span></li>
+                        <li><i class="fas fa-graduation-cap"></i> <span>Shri Vaishnav Vidyapeeth Vishwavidyalaya</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Nandini Nambiar. All Rights Reserved.</p>
+                <p>Designed and developed with ❤️</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuToggle.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add animation to skill bars on scroll
+        const skillBars = document.querySelectorAll('.skill-level');
+        
+        const animateSkillBars = () => {
+            skillBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0';
+                
+                setTimeout(() => {
+                    bar.style.transition = 'width 1.5s ease-in-out';
+                    bar.style.width = width;
+                }, 300);
+            });
+        };
+
+        // Trigger skill bar animation when skills section is in view
+        const skillsSection = document.getElementById('skills');
+        const observerOptions = {
+            threshold: 0.5
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateSkillBars();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        if (skillsSection) {
+            observer.observe(skillsSection);
+        }
+
+        // Form submission handling (if we had a form)
+        console.log("Portfolio loaded successfully!");
+        console.log("Welcome to Nandini Nambiar's Portfolio!");
+    </script>
+</body>
+</html>
